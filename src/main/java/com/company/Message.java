@@ -23,6 +23,12 @@ public class Message {
         this.author = author;
     }
 
+    public Message(int id, String text, String author) {
+        this.id = id;
+        this.text = text;
+        this.author = author;
+    }
+
     public int getId() {
         return id;
     }

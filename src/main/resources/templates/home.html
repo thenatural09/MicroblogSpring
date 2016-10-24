@@ -23,6 +23,20 @@ Welcome! Enter a message.<br>
     <tr>
         <td>{{text}}</td>
         <td>{{author}}</td>
+        <td>
+            <form action="/delete-message" method="post">
+                <input type="hidden" value="{{id}}" name="id"/>
+                <button type="submit">Delete</button>
+            </form>
+        </td>
+        <td>
+            <form action="/edit-message" method="post">
+                <input type="hidden" value="{{id}}" name="id"/>
+                Text: <input type="text" value="" name="text"/>
+                Author: <input type="text" value="" name="author"/>
+                <button type="submit">Edit Message</button>
+            </form>
+        </td>
     </tr>
     {{/messages}}
 </table>

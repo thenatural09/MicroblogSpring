@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class MicroblogSpringController {
+    @Autowired
     MessageRepository microblog;
 
     @RequestMapping(path = "/",method = RequestMethod.GET)
@@ -23,6 +24,20 @@ public class MicroblogSpringController {
     @RequestMapping(path = "/message",method = RequestMethod.POST)
     public String addMessage(String text,String author) {
         Message message = new Message(text,author);
+        microblog.save(message);
+        return "redirect:/";
+    }
+
+    @RequestMapping(path = "/delete-message",method = RequestMethod.POST)
+    public String deleteMessage(int id) {
+        Message message = microblog.findOne(id);
+        microblog.delete(id);
+        return "redirect:/";
+    }
+
+    @RequestMapping(path = "/edit-message",method = RequestMethod.POST)
+    public String editMessage(int id,String text,String author) {
+        Message message = new Message(id,text,author);
         microblog.save(message);
         return "redirect:/";
     }
