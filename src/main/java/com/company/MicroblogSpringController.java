@@ -26,5 +26,4 @@ public class MicroblogSpringController {
         microblog.save(message);
         return "redirect:/";
     }
-
 }
