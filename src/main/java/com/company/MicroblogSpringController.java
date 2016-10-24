@@ -27,5 +27,4 @@ public class MicroblogSpringController {
         return "redirect:/";
     }
 
-
 }
